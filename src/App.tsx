@@ -1,13 +1,19 @@
 import React from 'react';
 
+import Navbar from './components/Navbar';
+import SideBar from './components/SideBar';
 import AppProvider from './hooks';
-import Create from './pages/Create';
+import Routes from './routes';
+import { GlobalStyle } from './styles/global';
 
 const App: React.FC = () => {
   return (
     <>
       <AppProvider>
-        <Create />
+        <SideBar />
+        <Navbar />
+        <Routes />
+        <GlobalStyle />
       </AppProvider>
     </>
   );
