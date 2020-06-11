@@ -10,8 +10,8 @@ const App: React.FC = () => {
   return (
     <>
       <AppProvider>
-        <SideBar />
         <Navbar />
+        <SideBar />
         <Routes />
         <GlobalStyle />
       </AppProvider>
