@@ -33,11 +33,14 @@ const CreateUserProvider: React.FC = ({ children }) => {
 
   const create = useCallback(
     async ({ email, password, name }: CreateUserDTO) => {
-      await database.ref(`users/${uuid()}`).set({
-        email,
-        password,
-        name,
-      });
+      try {
+        const response = await api
+          .auth()
+          .createUserWithEmailAndPassword(email, password);
+        console.log(response.user);
+      } catch (error) {
+        console.log(error.message);
+      }
     },
     [database, uuid],
   );

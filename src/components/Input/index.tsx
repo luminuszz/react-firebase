@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import InputUi from '@material-ui/core/Input';
 import { useField } from '@unform/core';
 import React, { useEffect, useRef } from 'react';
 
@@ -7,9 +8,11 @@ interface Props {
   label?: string;
 }
 type InputProps = JSX.IntrinsicElements['input'] & Props;
+
 const Input: React.FC<InputProps> = ({ name, ...rest }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const { fieldName, defaultValue, registerField } = useField(name);
+
   useEffect(() => {
     registerField({
       name: fieldName,
